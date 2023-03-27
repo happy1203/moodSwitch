@@ -1,0 +1,143 @@
+.App {
+  /* text-align: center; */
+  color: #012825;
+
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body {
+  background-color: #ECF6EB;
+  /* background-color: #EBF2EA; */
+
+  font-family: 'Montserrat', sans-serif;
+  /* color: #012825; */
+}
+
+#logoName {
+  font-weight: 800;
+  padding: 20px 40px;
+  font-size: 22px;
+}
+
+#Welcome {
+  font-weight: 800;
+  margin-top: 20px;
+  color: #012825;
+  font-size: 28px;
+
+}
+
+p {
+  font-weight: 500;
+  color: #26615c;
+  font-size: 15px;
+  margin-top: 15px;
+}
+
+#loginPage {
+  border-radius: 25px;
+  background: #FFFFFF;
+  padding: 20px; 
+  width: 35%;
+  height: 450px;  
+  text-align: center;
+  margin: auto;
+  -webkit-box-shadow: 0px 15px 41px -2px rgba(56, 112, 67, 0.098); 
+  box-shadow: 0px 15px 41px -2px rgba(56, 112, 67, 0.098);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin-top: 15px;
+}
+
+#login {
+  background-color: #b7ecd7;
+  border: none;
+  font-size: 14px;
+  width: 80%;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  -webkit-box-shadow: 0px 7px 13px -7px rgba(156,156,156,0.52); 
+  box-shadow: 0px 7px 13px -7px rgba(156,156,156,0.52);
+  transition: 0.3s;
+}
+
+#fields {
+  margin-bottom: 12px;
+}
+
+input {
+  width: 80%;
+  margin: 4px;
+  padding: 5px;
+  border-radius: 7px;
+  border: #8f8f8f84 0.5px solid;
+}
+
+::placeholder {
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+#login:hover {
+  background-color: #cbeee0;
+  /* color: white; */
+  scale: 1.03;
+ 
+}
+
+#registerHere {
+  background-color: white;
+  border: none;
+  font-size: 12px;
+  margin-top: 23px;
+  transition: 0.3s;
+
+}
+
+#registerHere:hover {
+  scale: 1.03;
+ 
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
