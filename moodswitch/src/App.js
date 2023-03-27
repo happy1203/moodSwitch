@@ -44,6 +44,7 @@ function App() {
 
       <body>
       <div id='logoName'>Mood Switch</div>
+      <div id="container"> 
         <div id='loginPage'>
           <h1 id='Welcome'>Register</h1>
           <p>Please enter your data to register.</p>
@@ -59,6 +60,7 @@ function App() {
 
           <button className="link-btn" id="registerHere">Already have an account? <strong>Login here.</strong></button>
 
+        </div>
         </div>
       </body>
 
