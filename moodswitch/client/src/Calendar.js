@@ -7,7 +7,7 @@ export const MyCalendar = () => {
 
     return (
         <div>
-            <Calendar onChange={onChange} value={this.state.value}/>
+            <Calendar onChange={onChange} value={value}/>
         </div>
     );
 };
