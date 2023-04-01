@@ -1,5 +1,7 @@
 import Calendar from 'react-calendar';
 import React, { useState } from 'react';
+import 'react-calendar/dist/Calendar.css';
+
 
 
 export const MyCalendar = () => {
@@ -10,7 +12,8 @@ export const MyCalendar = () => {
     };
 
     return (
-        <div>
+        <div id='calendar-body'>
+            
             <Calendar onChange={onChange} value={value}/>
         </div>
     );

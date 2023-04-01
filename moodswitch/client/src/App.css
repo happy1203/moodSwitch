@@ -143,6 +143,13 @@ input {
  
 }
 
+.react-calendar {
+  background-color: #ffffff !important;
+  font-family: 'Montserrat', sans-serif !important;
+  border: none !important;
+
+}
+
 
 @keyframes App-logo-spin {
   from {
