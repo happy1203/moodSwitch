@@ -6,6 +6,10 @@ import React, { useState } from "react";
 import './App.css';
 import { Login } from "./Login";
 import { Register } from "./Register";
+import { MyCalendar } from "./Calendar";
+import { Route, Routes } from "react-router-dom"; 
+
+
 
 function App() {
 
@@ -17,9 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      {
-        currentForm === "login" ? <Login onFormSwitch={toggleForm} /> : <Register onFormSwitch={toggleForm} />
-      }
+    <Routes>
+        <Route path="/" element={<Login />}/>
+        <Route path="calendar" element={<MyCalendar />}/>
+        <Route path="register" element={<Register />}/>
+        <Route path="login" element={<Login />}/>
+    </Routes>
     </div>
   );
 }

@@ -10,7 +10,6 @@ import { MyCalendar } from './Calendar';
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    const [loginStatus, setLoginStatus] = useState("");
 
     const login = (e) => {
       e.preventDefault();
@@ -18,7 +17,11 @@ export const Login = (props) => {
         email: email,
         password: pass,
       })
-      window.location.href = "/Calender";
+      window.location.href="/calendar";
+    }
+
+    const routeRegister = () => {
+      window.location.href="/register";
     }
 
     return (
@@ -29,7 +32,6 @@ export const Login = (props) => {
           <div id='loginPage'>
             <h1 id='Welcome'>Welcome</h1>
             <p>Please enter your data to login.</p>
-  
             <form className="login-form">
               <div id="fields">
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="email" name="email" />
@@ -37,7 +39,7 @@ export const Login = (props) => {
               </div>
               <button onClick={login} type="submit" id="login">Log In</button>
             </form>
-            <button onClick={() => props.onFormSwitch('register')} className="link-btn" id="registerHere">Don't have an account? <strong>Register here.</strong></button>
+            <button onClick={routeRegister} className="link-btn" id="registerHere">Don't have an account? <strong>Register here.</strong></button>
           </div>
           </div>
         </body>

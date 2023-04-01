@@ -12,7 +12,6 @@ export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
-    const [registerStatus, setRegisterStatus] = useState("");
 
     const register = (e) => {
         e.preventDefault();
@@ -21,7 +20,11 @@ export const Register = (props) => {
           username: name,
           password: pass,
         })
-        window.location.href = "/Calender";
+        window.location.href="/calendar";
+    }
+
+    const routeLogin = () => {
+      window.location.href="/login";
     }
       
     return (
@@ -38,9 +41,9 @@ export const Register = (props) => {
                   <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Username" id="name" name="name" />
                   <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" />
                 </div>
-                <button onClick={register} type="submit" id="login" >Register</button>
+                <button onClick={register} type="submit" id="login" >Register{MyCalendar}</button>
               </form>
-              <button onClick={() => props.onFormSwitch('login')} className="link-btn" id="registerHere">Already have an account? <strong>Login here.</strong></button>
+              <button onClick={routeLogin} className="link-btn" id="registerHere">Already have an account? <strong>Login here.</strong></button>
             </div>
             </div>
           </body>

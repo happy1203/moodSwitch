@@ -1,9 +1,13 @@
 import Calendar from 'react-calendar';
 import React, { useState } from 'react';
-import { render } from "react-dom";
+
 
 export const MyCalendar = () => {
-    const [value, onChange] = useState(new Date());
+    const [value, setValue] = useState(new Date());
+
+    const onChange = date => {
+        setValue(date);
+    };
 
     return (
         <div>
@@ -12,4 +16,3 @@ export const MyCalendar = () => {
     );
 };
 
-render(<MyCalendar />); 
