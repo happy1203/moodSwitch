@@ -5,46 +5,40 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useState } from "react";
 import axios from 'axios';
+import { MyCalendar } from './Calendar'; 
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [loginStatus, setLoginStatus] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
-
-    const logging_in = (e) => {
+    const login = (e) => {
       e.preventDefault();
       axios.post("http://localhost:3001/login", {
         email: email,
         password: pass,
-      }).then((response) => {
-        if(response.data.message){
-          setLoginStatus(response.data.message);
-        }else{
-          setLoginStatus(response.data[0].email);
-        }
       })
+      window.location.href = "/Calender";
     }
 
     return (
         <div className="App">
         <body>
           <div id='logoName'>Mood Switch</div>
+          <div id="container"> 
           <div id='loginPage'>
             <h1 id='Welcome'>Welcome</h1>
             <p>Please enter your data to login.</p>
   
-            <form className="login-form" onSubmit={handleSubmit}>
+            <form className="login-form">
               <div id="fields">
               <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="email" name="email" />
               <input value={pass}  onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" />
               </div>
-              <button onClick={logging_in} type="submit" id="login">Log In</button>
+              <button onClick={login} type="submit" id="login">Log In</button>
             </form>
             <button onClick={() => props.onFormSwitch('register')} className="link-btn" id="registerHere">Don't have an account? <strong>Register here.</strong></button>
+          </div>
           </div>
         </body>
         <style>

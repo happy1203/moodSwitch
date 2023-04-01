@@ -5,17 +5,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useState } from "react";
 import axios from "axios";
+import { MyCalendar } from './Calendar'; 
+
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
     const [registerStatus, setRegisterStatus] = useState("");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
-    }
 
     const register = (e) => {
         e.preventDefault();
@@ -24,13 +21,7 @@ export const Register = (props) => {
           username: name,
           password: pass,
         })
-        .then((response) => {
-          if(response.data.message){
-            setRegisterStatus(response.data.message);
-          }else{
-            setRegisterStatus("ACCOUNT CREATED SUCCESSFULLY");
-          }
-        })
+        window.location.href = "/Calender";
     }
       
     return (
@@ -41,7 +32,7 @@ export const Register = (props) => {
             <div id='loginPage'>
               <h1 id='Welcome'>Register</h1>
               <p>Please enter your data to register.</p>  
-              <form className="login-form" onSubmit={handleSubmit}>
+              <form className="login-form">
                 <div id="fields">
                   <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="email" name="email" /> 
                   <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Username" id="name" name="name" />
