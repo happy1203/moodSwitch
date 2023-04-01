@@ -7,9 +7,9 @@ export const MyCalendar = () => {
 
     return (
         <div>
-            <Calendar onChange={onChange} value={value}/>
+            <Calendar onChange={onChange} value={this.state.value}/>
         </div>
     );
 };
 
-render(<MyCalendar />, document.querySelector("#root")); 
+render(<MyCalendar />); 
