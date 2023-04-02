@@ -1,0 +1,35 @@
+body {
+    /* background-color: rgb(255, 255, 255); */
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+
+.react-calendar__tile--now {
+    background: #b7e6dc !important;
+    border-radius: 20%;
+    max-width: 40px !important;
+    margin: auto !important;
+    color: black;
+}
+
+.react-calendar__month-view__days__day--weekend {
+    color: black !important;
+}
+
+.react-calendar {
+ margin-top: 40px;
+    margin: auto;
+}
+
+#calendar-body {
+    margin-top: 100px !important;
+    
+}
+
+.react-calendar__tile--active {
+    background: #b7e6dc !important;
+    border-radius: 20%;
+    max-width: 40px !important;
+    margin: auto !important;
+    color: black;
+}

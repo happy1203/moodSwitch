@@ -48,6 +48,13 @@ app.post("/login", (req, res) => {
     )
 })
 
+app.post("/dashboard", (req, res) => {
+    const mood = req.body.mood;
+    con.query("INSERT INTO registration (Mood) VALUES (?)", [mood], 
+        (err, result) => {}
+    )
+})
+
 app.listen(3001, () => {
     console.log("running backend server");
 })

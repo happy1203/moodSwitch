@@ -5,7 +5,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useState } from "react";
 import axios from 'axios';
-import { MyCalendar } from './Calendar'; 
 
 export const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -17,7 +16,7 @@ export const Login = (props) => {
         email: email,
         password: pass,
       })
-      window.location.href="/calendar";
+      window.location.href="/dashboard";
     }
 
     const routeRegister = () => {

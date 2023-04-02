@@ -5,8 +5,6 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useState } from "react";
 import axios from "axios";
-import { MyCalendar } from './Calendar'; 
-
 
 export const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -20,7 +18,7 @@ export const Register = (props) => {
           username: name,
           password: pass,
         })
-        window.location.href="/calendar";
+        window.location.href="/dashboard";
     }
 
     const routeLogin = () => {
@@ -41,7 +39,7 @@ export const Register = (props) => {
                   <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Username" id="name" name="name" />
                   <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" />
                 </div>
-                <button onClick={register} type="submit" id="login" >Register{MyCalendar}</button>
+                <button onClick={register} type="submit" id="login" >Register</button>
               </form>
               <button onClick={routeLogin} className="link-btn" id="registerHere">Already have an account? <strong>Login here.</strong></button>
             </div>
