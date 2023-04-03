@@ -1,7 +1,11 @@
 import './Music.css';
+import { Navbar } from './Navbar';
 
 export const Music = () => {
     return (
-        <h1>MUSICCCC</h1>
+        <>
+            <Navbar />
+            <h1>MUSICCCC</h1>
+        </>
     )
 }

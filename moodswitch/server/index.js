@@ -31,17 +31,18 @@ app.post('/register', (req, res) => {
 })
 
 app.post("/login", (req, res) => {
-    const username = req.body.username;
+    const email = req.body.email;
     const password = req.body.password;
-    con.query("SELECT * FROM registration WHERE username = ? AND password = ?", [username, password], 
+    con.query("SELECT * FROM registration WHERE Email = ? AND Password = ?", [email, password], 
         (err, result) => {
-            if(err){
+            if (err) { //there was an error in sending the request
                 req.setEncoding({err: err});
-            }else{
-                if(result.length > 0){
+            } else {
+                if (result.length > 0) { //login was successful
                     res.send(result);
-                }else{
-                    res.send({message: "WRONG USERNAME OR PASSWORD!"})
+                }
+                else { //the information entered was flawed but request went through
+                    res.send({message: "WRONG EMAIL OR PASSWORD"})
                 }
             }
         }
@@ -50,7 +51,8 @@ app.post("/login", (req, res) => {
 
 app.post("/dashboard", (req, res) => {
     const mood = req.body.mood;
-    con.query("INSERT INTO registration (Mood) VALUES (?)", [mood], 
+    const email = req.body.email; 
+    con.query("UPDATE registration SET Mood = ? WHERE Email = ?", [mood, email], 
         (err, result) => {}
     )
 })

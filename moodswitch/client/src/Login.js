@@ -6,17 +6,24 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import React, { useState } from "react";
 import axios from 'axios';
 
-export const Login = (props) => {
+export const Login = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const [loginFailed, setLoginFailed] = useState(false) 
 
     const login = (e) => {
       e.preventDefault();
       axios.post("http://localhost:3001/login", {
         email: email,
         password: pass,
+      }).then((response) => {
+        if (response.data.message) {
+          setLoginFailed(true); 
+        }
+        else {
+          window.location.href="/dashboard";
+        }
       })
-      window.location.href="/dashboard";
     }
 
     const routeRegister = () => {
@@ -37,6 +44,13 @@ export const Login = (props) => {
               <input value={pass}  onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" />
               </div>
               <button onClick={login} type="submit" id="login">Log In</button>
+              <div>
+              {loginFailed ? (
+                <h6>Try Again!</h6>
+              ) : (
+                <></>
+              )}
+            </div>
             </form>
             <button onClick={routeRegister} className="link-btn" id="registerHere">Don't have an account? <strong>Register here.</strong></button>
           </div>

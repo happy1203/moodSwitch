@@ -3,7 +3,16 @@ import React, { useState } from 'react';
 import 'react-calendar/dist/Calendar.css';
 import './Dashboard.css';
 import axios from 'axios';
-
+import { Navbar } from './Navbar.js';
+import badMood from './logos/badMood.png';
+import notGood from './logos/notGood.png';
+import okay from './logos/okay.png';
+import good from './logos/good.png'; 
+import excellent from './logos/excellent.png';
+import music from './logos/music.png';
+import podcast from './logos/podcast.png';
+import book from './logos/book.png';
+import mentalWelness from './logos/mentalWellness.png';
 
 export const Dashboard = () => {
     const [value, setValue] = useState(new Date());
@@ -16,61 +25,55 @@ export const Dashboard = () => {
     const routeMusic = () => {
         window.location.href="/music";
     };
+
+    const routePodcast = () => {
+        window.location.href="/podcast";
+    };
+
+    const routeWellness = () => {
+        window.location.href="/wellness";
+    };
+
+    const routeBook = () => {
+        window.location.href="/book";
+    };
     
     const mood = (e) => {
-        console.log("mood was called");
-        try {
-            axios.post("http://localhost:3001/dashboard", {
-              mood: myMood,
-            });
-            console.log(myMood);
-            setMood("");
-        }
-        catch (error) {
-            console.error(error);
-            setMood("");
-        }
+        axios.post("http://localhost:3001/dashboard", {
+            mood: myMood,
+            email: "testing@gmail.com", //placeholder value for now
+        });
     }
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">Navbar</a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-                <a className="nav-item nav-link active" href="#">Home <span className="sr-only"></span></a>
-                <a className="nav-item nav-link" href="#">Journal</a>
-                <a className="nav-item nav-link" href="#">Habits</a>
-                <a className="nav-item nav-link" href="#">Additional Resources<i class="fas fa-user"></i></a>
-            </div>
-            </div>
-            </nav>
+            <Navbar /> 
             <h1>Welcome Back, $PLACEHOLDER</h1>
-            <i class="fas fa-user" onClick={routeMusic}></i>
+            <img src={music} onClick={routeMusic}></img>
+            <img src={podcast} onClick={routePodcast}></img>
+            <img src={mentalWelness} onClick={routeWellness}></img>
+            <img src={book} onClick={routeBook}></img>
             <h3>Daily Journal</h3>
             <h5>How are you feeling today?</h5>
-            <button onClick={() => {
+            <img src={badMood}  onClick={() => {
                 setMood("BAD");
-                mood();}}>Bad</button>
+                mood();}}></img>
 
-            <button onClick={() => {
+            <img src={notGood}  onClick={() => {
                 setMood("NOT GREAT");
-                mood();}}>Not Great</button>
-
-            <button onClick={() => {
+                mood();}}></img>
+            
+            <img src={okay}  onClick={() => {
                 setMood("OKAY");
-                mood();}}>Okay</button>
-
-            <button onClick={() => {
+                mood();}}></img>
+            
+            <img src={good}  onClick={() => {
                 setMood("GOOD");
-                mood();}}>Good</button>
-
-            <button onClick={() => {
-                setMood("EXCELLENT");
-                mood();}}>Excellent</button>
+                mood();}}></img>
+            
+            <img src={excellent}  onClick={() => {
+                setMood("BAD");
+                mood();}}></img>
 
             <div id='calendar-body'>
                 <Calendar onChange={onChange} value={value}/>
