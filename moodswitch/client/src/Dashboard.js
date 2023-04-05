@@ -14,7 +14,7 @@ import podcast from './logos/podcast.png';
 import book from './logos/book.png';
 import mentalWelness from './logos/mentalWellness.png';
 
-export const Dashboard = () => {
+export const Dashboard = ({email}) => {
     const [value, setValue] = useState(new Date());
     const [myMood, setMood] = useState(""); 
 
@@ -41,7 +41,7 @@ export const Dashboard = () => {
     const mood = (e) => {
         axios.post("http://localhost:3001/dashboard", {
             mood: myMood,
-            email: "testing@gmail.com", //placeholder value for now
+            email: email, //placeholder value for now
         });
     }
 

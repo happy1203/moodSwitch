@@ -6,8 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import React, { useState } from "react";
 import axios from 'axios';
 
-export const Login = () => {
-    const [email, setEmail] = useState('');
+export const Login = ({email, setEmail}) => {
     const [pass, setPass] = useState('');
     const [loginFailed, setLoginFailed] = useState(false) 
 

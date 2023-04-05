@@ -16,7 +16,7 @@ import { Route, Routes } from "react-router-dom";
 
 
 function App() {
-
+  const [email, setEmail] = useState('');
   const [currentForm, setCurrentForm] = useState('login');
 
   const toggleForm = (formName) => {
@@ -26,8 +26,8 @@ function App() {
   return (
     <div className="App">
     <Routes>
-        <Route path="/" element={<Login />}/>
-        <Route path="dashboard" element={<Dashboard />}/>
+        <Route path="/" element={<Login setEmail={setEmail} email={email}/>}/>
+        <Route path="dashboard" element={<Dashboard email={email}/>}/>
         <Route path="register" element={<Register />}/>
         <Route path="login" element={<Login />}/>
         <Route path="music" element={<Music />}/>
