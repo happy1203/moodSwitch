@@ -51,7 +51,7 @@ app.post("/login", (req, res) => {
 
 app.post("/dashboard", (req, res) => {
     const mood = req.body.mood;
-    const email = "testing@gmail.com"; 
+    const email = req.body.email; 
     con.query("UPDATE registration SET Mood = ? WHERE Email = ?", [mood, email], 
         (err, result) => {}
     )

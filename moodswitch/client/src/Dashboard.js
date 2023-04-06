@@ -4,6 +4,7 @@ import 'react-calendar/dist/Calendar.css';
 import './Dashboard.css';
 import axios from 'axios';
 import { Navbar } from './Navbar.js';
+
 import badMood from './logos/badMood.png';
 import notGood from './logos/notGood.png';
 import okay from './logos/okay.png';
@@ -16,7 +17,7 @@ import mentalWelness from './logos/mentalWellness.png';
 
 export const Dashboard = ({email}) => {
     const [value, setValue] = useState(new Date());
-    const [myMood, setMood] = useState(""); 
+    const [myMood, setMood] = useState('');
 
     const onChange = date => {
         setValue(date);
@@ -43,6 +44,7 @@ export const Dashboard = ({email}) => {
             mood: myMood,
             email: email, //placeholder value for now
         });
+        console.log(myMood);
     }
 
     return (
@@ -55,24 +57,30 @@ export const Dashboard = ({email}) => {
             <img src={book} onClick={routeBook}></img>
             <h3>Daily Journal</h3>
             <h5>How are you feeling today?</h5>
+            <h1>PLEASE DOUBLE CLICK</h1>
             <img src={badMood}  onClick={() => {
+                setMood("");
                 setMood("BAD");
                 mood();}}></img>
 
             <img src={notGood}  onClick={() => {
+                setMood("");
                 setMood("NOT GREAT");
                 mood();}}></img>
             
             <img src={okay}  onClick={() => {
+                setMood("");
                 setMood("OKAY");
                 mood();}}></img>
             
             <img src={good}  onClick={() => {
+                setMood("");
                 setMood("GOOD");
                 mood();}}></img>
             
             <img src={excellent}  onClick={() => {
-                setMood("BAD");
+                setMood("");
+                setMood("EXCELLENT");
                 mood();}}></img>
 
             <div id='calendar-body'>
