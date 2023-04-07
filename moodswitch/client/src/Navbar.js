@@ -21,7 +21,7 @@ export const Navbar = () => {
         //     </nav>
     <nav id='navbarDesign'  class="navbar navbar-expand-md navbar-dark bg-dark" style={{fontSize:'20px', height: '90px', boxShadow:'0px 2px 10px 0px rgba(178, 176, 176, 0.66)'}}>
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav me-auto">
+        <ul class="navbar-nav me-auto" style={{whiteSpace:'nowrap'}}>
         <li class="nav-item">
             <a className="nav-item nav-link" style={{color:'white', fontWeight: '700', marginRight:'60px'}} href="#"><img src={logoMoodSwitch} style={{width: '80px', marginRight: '10px'}}></img> Mood Switch</a>
             </li>
