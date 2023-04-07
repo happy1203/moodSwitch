@@ -62,7 +62,7 @@ export const Dashboard = ({ email }) => {
         }}
       >
 
-      <div class="row" align="center" style={{ width: "100%", marginBottom:'50px'}}>
+      <div class="row" align="center" style={{ marginBottom:'50px'}}>
   <div class="col-sm" align="center">
     <div class="card" style={{ padding:'40px'}}>
       <div class="card-body" >
