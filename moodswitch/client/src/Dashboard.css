@@ -44,3 +44,27 @@ body {
 #allHeaderInfo {
     text-align: center;
 }
+
+.moodIcon {
+   transition: 0.5s;
+   cursor: pointer;
+}
+
+.moodIcon:hover{
+    scale: 1.04;
+}
+
+.activityIcon {
+    transition: 0.5s;
+    cursor: pointer;
+ }
+ 
+ .activityIcon:hover{
+     scale: 1.04;
+ }
+ 
+ .card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 2px 10px 0px rgba(224,224,224,0.86);
+ }

@@ -19,7 +19,7 @@ export const Navbar = () => {
         //     </div>
         //     </div>
         //     </nav>
-    <nav id='navbarDesign'  class="navbar navbar-expand-md navbar-dark bg-dark" style={{fontSize:'20px', height: '90px' }}>
+    <nav id='navbarDesign'  class="navbar navbar-expand-md navbar-dark bg-dark" style={{fontSize:'20px', height: '90px', boxShadow:'0px 2px 10px 0px rgba(178, 176, 176, 0.66)'}}>
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav me-auto">
         <li class="nav-item">
