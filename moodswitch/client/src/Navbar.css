@@ -9,3 +9,12 @@
 #navbarContent {
     color: white !important;
 }
+
+a {
+    transition: 0.5s !important;
+
+}
+
+a:hover {
+    color: #005649 !important;
+}

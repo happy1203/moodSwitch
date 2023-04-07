@@ -92,6 +92,7 @@ export const Dashboard = ({ email }) => {
                   style={{ width: "70%" }}
                 ></img>
               </a>
+              <div id="activityLabel">Music</div>
             </div>
             <div className="col-sm-3" align="center">
               <img className="activityIcon"
@@ -99,6 +100,7 @@ export const Dashboard = ({ email }) => {
                 onClick={routePodcast}
                 style={{ width: "70%" }}
               ></img>
+               <div id="activityLabel">Podcast</div>
             </div>
             <div className="col-sm-3" align="center">
               <img className="activityIcon"
@@ -106,6 +108,7 @@ export const Dashboard = ({ email }) => {
                 onClick={routeWellness}
                 style={{ width: "70%" }}
               ></img>
+               <div id="activityLabel">Wellness & Activities</div>
             </div>
             <div className="col-sm-3" align="center">
               <img className="activityIcon"
@@ -113,6 +116,7 @@ export const Dashboard = ({ email }) => {
                 onClick={routeBook}
                 style={{ width: "70%" }}
               ></img>
+               <div id="activityLabel">Articles</div>
             </div>
           </div>
         </div>
@@ -127,7 +131,7 @@ export const Dashboard = ({ email }) => {
 
         <div class="row" >
           <div class="col-sm-8">
-            <div class="card" style={{ height:'500px', padding: '40px'}}>
+            <div class="card" style={{ height:'480px', padding: '40px'}}>
               <div class="card-body" style={{alignItems:'center', display:'flex', flexWrap:'wrap', alignContent:'center', flexDirection:'column', justifyContent:'center'
             }}>
                 <div id="allHeaderInfo">
@@ -152,7 +156,6 @@ export const Dashboard = ({ email }) => {
                     <div className="col-sm " align="center">
                       {/* <img src={music} onClick={routeMusic}></img> */}
                       <a>
-                        {" "}
                         <img className="moodIcon"
                           src={badMood}
                           onClick={() => {
@@ -214,8 +217,9 @@ export const Dashboard = ({ email }) => {
             </div>
           </div>
           <div class="col-sm-4">
-            <div class="card" style={{ height:'500px'}}>
-              <div class="card-body">
+            <div class="card" style={{ height:'480px'}}>
+              <div class="card-body" style={{alignItems:'center', display:'flex', flexWrap:'wrap', alignContent:'center', flexDirection:'column', justifyContent:'center'
+            }}>
                 <div id="calendar-body">
                   <Calendar onChange={onChange} value={value} />
                 </div>

@@ -26,13 +26,13 @@ export const Navbar = () => {
             <a className="nav-item nav-link" style={{color:'white', fontWeight: '700', marginRight:'60px'}} href="#"><img src={logoMoodSwitch} style={{width: '80px', marginRight: '10px'}}></img> Mood Switch</a>
             </li>
             <li class="nav-item">
-            <a className="nav-item nav-link" style={{color:'white', marginRight:'20px', fontSize: '18px', marginTop: '3px'}} href="#">Journal</a>
+            <a className="nav-item nav-link" style={{color:'white', marginRight:'20px', fontSize: '18px', marginTop: '3px', fontWeight: '500'}} href="#">Journal</a>
             </li>
             <li class="nav-item">
-            <a className="nav-item nav-link" style={{color:'white', marginRight:'20px', fontSize: '18px', marginTop: '3px'}} href="#">Habits</a>
+            <a className="nav-item nav-link" style={{color:'white', marginRight:'20px', fontSize: '18px', marginTop: '3px', fontWeight: '500'}} href="#">Habits</a>
             </li>
             <li class="nav-item">
-            <a className="nav-item nav-link me-auto" style={{color:'white', marginRight:'20px', fontSize: '18px', marginTop: '3px'}} href="#">Additional Resources</a>
+            <a className="nav-item nav-link me-auto" style={{color:'white', marginRight:'20px', fontSize: '18px', marginTop: '3px', fontWeight: '500'}} href="#">Additional Resources</a>
             </li>
         </ul>
     </div>
