@@ -18,7 +18,7 @@ export const Register = (props) => {
           username: name,
           password: pass,
         })
-        window.location.href="/dashboard";
+        window.location.href="/dashboard?username=" + name;
     }
 
     const routeLogin = () => {

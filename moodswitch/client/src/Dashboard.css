@@ -33,3 +33,14 @@ body {
     margin: auto !important;
     color: black;
 }
+
+#welcomeHeader {
+    font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #264F41;
+}
+
+#allHeaderInfo {
+    text-align: center;
+}

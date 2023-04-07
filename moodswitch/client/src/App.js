@@ -19,6 +19,8 @@ function App() {
   const [email, setEmail] = useState('');
   const [currentForm, setCurrentForm] = useState('login');
 
+  console.log(email);
+
   const toggleForm = (formName) => {
     setCurrentForm(formName);
   }
@@ -28,7 +30,7 @@ function App() {
     <Routes>
         <Route path="/" element={<Login setEmail={setEmail} email={email}/>}/>
         <Route path="dashboard" element={<Dashboard email={email}/>}/>
-        <Route path="register" element={<Register />}/>
+        <Route path="register" element={<Register  setEmail={setEmail} email={email}/>}/>
         <Route path="login" element={<Login />}/>
         <Route path="music" element={<Music />}/>
         <Route path="podcast" element={<Podcast />}/>
