@@ -2,7 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import React, { useState } from "react";
+import {React, useState} from "react";
 import './App.css';
 import { Login } from "./Login";
 import { Register } from "./Register";
@@ -12,32 +12,26 @@ import { Podcast } from './Podcast';
 import { Book } from './Book';
 import { Wellness } from './MentalWellness';
 import { Route, Routes } from "react-router-dom"; 
-
+import { EmailContext } from './EmailContext';
 
 
 function App() {
   const [email, setEmail] = useState('');
-  const [currentForm, setCurrentForm] = useState('login');
-
-  console.log(email);
-
-  const toggleForm = (formName) => {
-    setCurrentForm(formName);
-  }
-
   return (
-    <div className="App">
-    <Routes>
-        <Route path="/" element={<Login setEmail={setEmail} email={email}/>}/>
-        <Route path="dashboard" element={<Dashboard email={email}/>}/>
-        <Route path="register" element={<Register  setEmail={setEmail} email={email}/>}/>
-        <Route path="login" element={<Login />}/>
-        <Route path="music" element={<Music />}/>
-        <Route path="podcast" element={<Podcast />}/>
-        <Route path="book" element={<Book />}/>
-        <Route path="wellness" element={<Wellness />}/>
-    </Routes> 
-    </div>
+    <EmailContext.Provider value={{email, setEmail}}>
+      <div className="App">
+      <Routes>
+          <Route path="/" element={<Login />}/>
+          <Route path="dashboard" element={<Dashboard />}/>
+          <Route path="register" element={<Register />}/>
+          <Route path="login" element={<Login />}/>
+          <Route path="music" element={<Music />}/>
+          <Route path="podcast" element={<Podcast />}/>
+          <Route path="book" element={<Book />}/>
+          <Route path="wellness" element={<Wellness />}/>
+      </Routes> 
+      </div>
+    </EmailContext.Provider>
   );
 }
 

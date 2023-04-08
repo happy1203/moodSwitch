@@ -6,7 +6,12 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import React, { useState } from "react";
 import axios from 'axios';
 
-export const Login = ({email, setEmail}) => {
+import { useContext } from 'react';
+import { EmailContext } from './EmailContext';
+
+export const Login = () => {
+    const { email, setEmail } = useContext(EmailContext);
+
     const [pass, setPass] = useState('');
     const [loginFailed, setLoginFailed] = useState(false) 
 
@@ -26,6 +31,7 @@ export const Login = ({email, setEmail}) => {
     }
 
     const routeRegister = () => {
+      console.log(email);
       window.location.href="/register";
     }
 

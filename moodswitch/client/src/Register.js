@@ -3,11 +3,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
+import { EmailContext } from './EmailContext';
 
-export const Register = (props) => {
-    const [email, setEmail] = useState('');
+export const Register = () => {
+    const { email, setEmail } = useContext(EmailContext);
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
 
@@ -18,7 +19,7 @@ export const Register = (props) => {
           username: name,
           password: pass,
         })
-        window.location.href="/dashboard?username=" + name;
+        window.location.href="/dashboard";
     }
 
     const routeLogin = () => {

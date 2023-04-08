@@ -1,11 +1,12 @@
 import Calendar from "react-calendar";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "react-calendar/dist/Calendar.css";
 import "./Dashboard.css";
 import axios from "axios";
 import { Navbar } from "./Navbar.js";
-import { useSearchParams } from "react-router-dom";
+import { EmailContext } from './EmailContext';
 
+//image imports
 import badMood from "./logos/badMood.png";
 import notGood from "./logos/notGood.png";
 import okay from "./logos/okay.png";
@@ -16,7 +17,8 @@ import podcast from "./logos/podcast.png";
 import book from "./logos/book.png";
 import mentalWelness from "./logos/mentalWellness.png";
 
-export const Dashboard = ({ email }) => {
+export const Dashboard = () => {
+  const { email, setEmail } = useContext(EmailContext);
   const [value, setValue] = useState(new Date());
   const [myMood, setMood] = useState("");
 
@@ -40,14 +42,14 @@ export const Dashboard = ({ email }) => {
     window.location.href = "/book";
   };
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  //const [searchParams, setSearchParams] = useSearchParams();
 
   const mood = (e) => {
     axios.post("http://localhost:3001/dashboard", {
       mood: myMood,
       email: email, //placeholder value for now
     });
-    console.log(myMood + ", " + searchParams.get("username"));
+    console.log({email})
   };
 
   return (
@@ -61,6 +63,7 @@ export const Dashboard = ({ email }) => {
           paddingBottom: "8%",
         }}
       >
+        <h1>{email}</h1>
 
       <div class="row" align="center" style={{ marginBottom:'50px'}}>
   <div class="col-sm" align="center">
@@ -68,7 +71,7 @@ export const Dashboard = ({ email }) => {
       <div class="card-body" >
       <div id="allHeaderInfo">
           <div id="welcomeHeader">
-            Welcome, {searchParams.get("username")} 👋
+            Welcome, {email} 👋
           </div>
           <div
             style={{
