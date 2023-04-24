@@ -1,6 +1,6 @@
 import './Music.css';
 import { Navbar } from './Navbar';
-import { EmailContext } from './EmailContext';
+import { EmailContext } from './emailContext';
 import { useContext } from 'react';
 
 

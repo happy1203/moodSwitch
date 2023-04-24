@@ -5,20 +5,6 @@ import logoMoodSwitch from './logos/logoMoodSwitch.png';
 
 export const Navbar = () => {
     return (
-        // <nav id='navbarDesign' className="navbar navbar-expand-lg navbar-light bg-light"  style={{fontSize:'20px', height: '90px' }}>
-        //     <a className="navbar-brand" href="#">Navbar</a>
-        //     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        //     <span className="navbar-toggler-icon"></span>
-        //     </button>
-        //     <div className="collapse navbar-collapse" id="navbarNavAltMarkup"  >
-        //     <div className="navbar-nav" id='navbarContent'>
-        //         <a className="nav-item nav-link active" style={{color:'white'}} href="#">Home <span className="sr-only"></span></a>
-        //         <a className="nav-item nav-link" style={{color:'white'}} href="#">Journal</a>
-        //         <a className="nav-item nav-link" style={{color:'white'}} href="#">Habits</a>
-        //         <a className="nav-item nav-link me-auto" style={{color:'white'}} href="#">Additional Resources<i className="fas fa-user"></i></a>
-        //     </div>
-        //     </div>
-        //     </nav>
     <nav id='navbarDesign'  class="navbar navbar-expand-md navbar-dark bg-dark" style={{fontSize:'20px', height: '90px', boxShadow:'0px 2px 10px 0px rgba(178, 176, 176, 0.66)'}}>
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav me-auto" style={{whiteSpace:'nowrap'}}>

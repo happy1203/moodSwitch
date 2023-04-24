@@ -12,12 +12,15 @@ import { Podcast } from './Podcast';
 import { Book } from './Book';
 import { Wellness } from './MentalWellness';
 import { Route, Routes } from "react-router-dom"; 
-import { EmailContext } from './EmailContext';
+import { EmailContext } from './emailContext';
+import { NameContext } from "./nameContext";
 
 
 function App() {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   return (
+    <NameContext.Provider value={{name, setName}}>
     <EmailContext.Provider value={{email, setEmail}}>
       <div className="App">
       <Routes>
@@ -32,6 +35,7 @@ function App() {
       </Routes> 
       </div>
     </EmailContext.Provider>
+    </NameContext.Provider>
   );
 }
 

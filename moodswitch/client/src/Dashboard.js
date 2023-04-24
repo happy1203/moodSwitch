@@ -4,7 +4,10 @@ import "react-calendar/dist/Calendar.css";
 import "./Dashboard.css";
 import axios from "axios";
 import { Navbar } from "./Navbar.js";
-import { EmailContext } from './EmailContext';
+import { EmailContext } from './emailContext';
+import { NameContext } from "./nameContext";
+import { useNavigate } from 'react-router';
+
 
 //image imports
 import badMood from "./logos/badMood.png";
@@ -18,7 +21,9 @@ import book from "./logos/book.png";
 import mentalWelness from "./logos/mentalWellness.png";
 
 export const Dashboard = () => {
-  const { email, setEmail } = useContext(EmailContext);
+  const navigate = useNavigate();
+  const { email } = useContext(EmailContext);
+  const { name } = useContext(NameContext);
   const [value, setValue] = useState(new Date());
   const [myMood, setMood] = useState("");
 
@@ -27,29 +32,26 @@ export const Dashboard = () => {
   };
 
   const routeMusic = () => {
-    window.location.href = "/music";
+    navigate('/music');
   };
 
   const routePodcast = () => {
-    window.location.href = "/podcast";
+    navigate('/podcast');
   };
 
   const routeWellness = () => {
-    window.location.href = "/wellness";
+    navigate('/wellness');
   };
 
   const routeBook = () => {
-    window.location.href = "/book";
+    navigate('/book');
   };
-
-  //const [searchParams, setSearchParams] = useSearchParams();
 
   const mood = (e) => {
     axios.post("http://localhost:3001/dashboard", {
       mood: myMood,
-      email: email, //placeholder value for now
-    });
-    console.log({email})
+      email: email,
+    })
   };
 
   return (
@@ -63,15 +65,13 @@ export const Dashboard = () => {
           paddingBottom: "8%",
         }}
       >
-        <h1>{email}</h1>
-
       <div class="row" align="center" style={{ marginBottom:'50px'}}>
   <div class="col-sm" align="center">
     <div class="card" style={{ padding:'40px'}}>
       <div class="card-body" >
       <div id="allHeaderInfo">
           <div id="welcomeHeader">
-            Welcome, {email} 👋
+            Welcome, {name} 👋
           </div>
           <div
             style={{
@@ -162,9 +162,8 @@ export const Dashboard = () => {
                         <img className="moodIcon"
                           src={badMood}
                           onClick={() => {
-                            setMood("");
                             setMood("BAD");
-                            mood("Bad");
+                            mood();
                           }}
                           style={{ width: "85%" }}
                         ></img>
@@ -174,7 +173,6 @@ export const Dashboard = () => {
                       <img className="moodIcon"
                         src={notGood}
                         onClick={() => {
-                          setMood("");
                           setMood("NOT GREAT");
                           mood();
                         }}
@@ -185,7 +183,6 @@ export const Dashboard = () => {
                       <img className="moodIcon"
                         src={okay}
                         onClick={() => {
-                          setMood("");
                           setMood("OKAY");
                           mood();
                         }}
@@ -196,7 +193,6 @@ export const Dashboard = () => {
                       <img className="moodIcon"
                         src={good}
                         onClick={() => {
-                          setMood("");
                           setMood("GOOD");
                           mood();
                         }}
@@ -207,7 +203,6 @@ export const Dashboard = () => {
                       <img className="moodIcon"
                         src={excellent}
                         onClick={() => {
-                          setMood("");
                           setMood("EXCELLENT");
                           mood();
                         }}

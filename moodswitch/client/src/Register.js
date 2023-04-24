@@ -5,25 +5,33 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import { EmailContext } from './EmailContext';
+import { EmailContext } from './emailContext';
+import { NameContext } from './nameContext'
+import { useNavigate } from 'react-router';
+
 
 export const Register = () => {
-    const { email, setEmail } = useContext(EmailContext);
+    const { setEmail } = useContext(EmailContext);
+    const [emailtemp, setEmailtemp] = useState('');
     const [pass, setPass] = useState('');
-    const [name, setName] = useState('');
+    const { setName } = useContext(NameContext); 
+    const [ nametemp, setNametemp ] = useState('');
+    const navigate = useNavigate();
 
     const register = (e) => {
         e.preventDefault();
         axios.post("http://localhost:3001/register", {
-          email: email,
-          username: name,
+          email: emailtemp,
+          username: nametemp,
           password: pass,
         })
-        window.location.href="/dashboard";
+        setEmail(emailtemp);
+        setName(nametemp);
+        navigate('/login');
     }
 
     const routeLogin = () => {
-      window.location.href="/login";
+      navigate('/login');
     }
       
     return (
@@ -36,8 +44,8 @@ export const Register = () => {
               <p>Please enter your data to register.</p>  
               <form className="login-form">
                 <div id="fields">
-                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="email" name="email" /> 
-                  <input value={name} onChange={(e) => setName(e.target.value)} type="text" placeholder="Username" id="name" name="name" />
+                  <input value={emailtemp} onChange={(e) => setEmailtemp(e.target.value)} type="email" placeholder="Email" id="email" name="email" /> 
+                  <input value={nametemp} onChange={(e) => setNametemp(e.target.value)} type="text" placeholder="Username" id="name" name="name" />
                   <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" />
                 </div>
                 <button onClick={register} type="submit" id="login" >Register</button>

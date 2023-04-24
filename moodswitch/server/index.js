@@ -54,8 +54,8 @@ app.post("/dashboard", (req, res) => {
     const email = req.body.email; 
     con.query("UPDATE registration SET Mood = ? WHERE Email = ?", [mood, email], 
         (err, result) => {}
-    )
-})
+    );
+});
 
 app.listen(3001, () => {
     console.log("running backend server");

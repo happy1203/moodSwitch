@@ -5,34 +5,39 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import React, { useState } from "react";
 import axios from 'axios';
-
+import { useNavigate } from 'react-router';
 import { useContext } from 'react';
-import { EmailContext } from './EmailContext';
+import { EmailContext } from './emailContext';
+import { NameContext } from "./nameContext";
 
 export const Login = () => {
-    const { email, setEmail } = useContext(EmailContext);
-
+    const { setEmail } = useContext(EmailContext);
+    const [emailtemp, setEmailtemp] = useState('');
     const [pass, setPass] = useState('');
-    const [loginFailed, setLoginFailed] = useState(false) 
+    const [loginFailed, setLoginFailed] = useState(false); 
+    const { setName } = useContext(NameContext);
+    const [nametemp, setNametemp] = useState('');
+    const navigate = useNavigate();
 
     const login = (e) => {
       e.preventDefault();
       axios.post("http://localhost:3001/login", {
-        email: email,
+        email: emailtemp,
         password: pass,
       }).then((response) => {
         if (response.data.message) {
           setLoginFailed(true); 
         }
         else {
-          window.location.href="/dashboard";
+          setName(nametemp);
+          setEmail(emailtemp);
+          navigate('/dashboard');
         }
       })
     }
 
     const routeRegister = () => {
-      console.log(email);
-      window.location.href="/register";
+      navigate('/register');
     }
 
     return (
@@ -45,7 +50,8 @@ export const Login = () => {
             <p>Please enter your data to login.</p>
             <form className="login-form">
               <div id="fields">
-              <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="email" name="email" />
+              <input value={emailtemp} onChange={(e) => setEmailtemp(e.target.value)} type="email" placeholder="Email" id="email" name="email" />
+              <input value={nametemp} onChange={(e) => setNametemp(e.target.value)} type="text" placeholder="Username" id="name" name="name" />
               <input value={pass}  onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="password" name="password" />
               </div>
               <button onClick={login} type="submit" id="login">Log In</button>
