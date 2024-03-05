@@ -1,4 +1,4 @@
-<strong>MoodSwitch</strong>
+<h1><strong>MoodSwitch</strong></h1>
 <p>MoodSwitch is a mental health application designed to help users track their daily mood and progress towards mental wellness. With MoodSwitch, users can create their own accounts, log their daily mood, track trends over time, and access resources to support their mental health journey.</p>
 
 <h2>Features</h2>
